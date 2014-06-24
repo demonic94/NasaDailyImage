@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/refresh" 
+        android:title="@string/app_refresh" 
+        android:icon="@drawable/refresh"
+        android:showAsAction="ifRoom"
+    >
+        
+    </item>
+    <item 
+        android:id="@+id/setwall" 
+        android:alphabeticShortcut="SetWall" 
+        android:title="@string/setwall"
+        android:showAsAction="ifRoom"
+    ></item>
+    
+
+</menu>

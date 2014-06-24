@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Nasa Daily Image</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">Solar Dynamics Observatory Sees Lunar Transit</string>
+    <string name="pdate">30/01/2014</string>
+    <string name="description">On Jan. 30, 2014, beginning at 8:31 a.m EST, the moon moved between NASA\’s Solar Dynamics Observatory, or SDO, and the sun, giving the observatory a view of a partial solar eclipse from space. Such a lunar transit happens two to three times each year.  This one lasted two and one half hours, which is the longest ever recorded.  When the next one will occur is as of yet unknown due to planned adjustments in SDO\'s orbit.</string>
+    <string name="app_refresh">Refresh</string>
+    <string name="setwall">Set Wallpaper</string>
+    <string name="Tsuccess">Wallpaper Set</string>
+    <string name="Tfail">Error Setting Wallpaper</string>
+
+</resources>
