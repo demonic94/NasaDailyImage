@@ -13,6 +13,12 @@
         android:title="@string/setwall"
         android:showAsAction="ifRoom"
     ></item>
+    <item 
+        android:id="@+id/store" 
+        android:alphabeticShortcut="Store to SD card" 
+        android:title="@string/store"
+        android:showAsAction="ifRoom"
+    ></item>
     
 
 </menu>

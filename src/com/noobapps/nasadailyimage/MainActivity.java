@@ -1,10 +1,13 @@
 package com.noobapps.nasadailyimage;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,6 +26,7 @@ public class MainActivity extends Activity {
 
 	private IotdHandler iotdHandler;
 	protected Bitmap image;
+	protected String title;
 	protected Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +52,8 @@ public class MainActivity extends Activity {
                 	System.exit(1);
                 } });
             alertDialog.show();
-        	//android.os.Process.killProcess(android.os.Process.myPid());
-        	//System.exit(1);
+        	android.os.Process.killProcess(android.os.Process.myPid());
+        	System.exit(1);
         }
         
     }
@@ -80,7 +84,9 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			}
 	    		return true;
-    	
+	    	case R.id.store :
+	    		storeSD();
+	    		
 	    	default :
 	    		return super.onOptionsItemSelected(item);
     	}
@@ -106,9 +112,10 @@ public class MainActivity extends Activity {
 					iotdHandler = new IotdHandler();
 		        iotdHandler.processFeed();
 		        image = iotdHandler.getImage();
+		        title = iotdHandler.getTitle();
 		        handler.post(new Runnable(){
 		        	public void run(){
-		        		resetDisplay(iotdHandler.getTitle(), iotdHandler.getDate(),iotdHandler.getImage(), iotdHandler.getDescription());
+		        		resetDisplay(title, iotdHandler.getDate(), image, iotdHandler.getDescription());
 				        dialog.dismiss();
 			        } 	
 		        });
@@ -143,6 +150,25 @@ public class MainActivity extends Activity {
 			}
 		};
 		th1.start();
+	}
+	
+	void storeSD(){
+
+        String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath()+"/NASA Daily Image";
+        File dir = new File(sdcard);
+
+        if (!dir.exists())
+            dir.mkdirs();
+        File file = new File(sdcard, title);
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            image.compress(Bitmap.CompressFormat.PNG, 90, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
 	}
     
 }

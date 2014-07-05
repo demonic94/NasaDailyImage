@@ -10,5 +10,6 @@
     <string name="setwall">Set Wallpaper</string>
     <string name="Tsuccess">Wallpaper Set</string>
     <string name="Tfail">Error Setting Wallpaper</string>
+    <string name="store">Store to SD card</string>
 
 </resources>

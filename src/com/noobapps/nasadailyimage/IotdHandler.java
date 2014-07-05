@@ -15,9 +15,7 @@ import android.os.StrictMode;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.io.IOException;
@@ -53,7 +51,7 @@ reader.parse(new InputSource(inputStream));
 catch (Exception e) 
 {
     e.printStackTrace();
-    System.out.println(new String("Got Exception General"));
+    //System.out.println(new String("Got Exception General"));
 }
 }
 
@@ -71,12 +69,12 @@ return bitmap;
 } 
 catch (IOException ioe) 
 {
-    System.out.println(new String("IOException in reading Image"));
+    //System.out.println(new String("IOException in reading Image"));
     return null;
 }
 catch (Exception ioe) 
 {
-    System.out.println(new String("IOException GENERAL"));
+    //System.out.println(new String("IOException GENERAL"));
     return null;
 }
 }
@@ -87,9 +85,9 @@ Attributes attributes) throws SAXException
 
 if (localName.equals("enclosure"))
 {
-    System.out.println(new String("characters Image"));
+    //System.out.println(new String("characters Image"));
     imageUrl = attributes.getValue("","url");
-    System.out.println(imageUrl);
+    //System.out.println(imageUrl);
     inUrl = true; 
 }
 else { inUrl = false; }
@@ -105,17 +103,17 @@ else { inDate = false; }
 }
 
 public void characters(char ch[], int start, int length) {
-    System.out.println(new String("characters"));
+    //System.out.println(new String("characters"));
 String chars = new String(ch).substring(start, start + length);
-System.out.println(chars);
+//System.out.println(chars);
 if (inUrl && image == null) 
 {
-    System.out.println(new String("IMAGE"));
-    System.out.println(imageUrl);
+   // System.out.println(new String("IMAGE"));
+   // System.out.println(imageUrl);
     image = getBitmap(imageUrl);
 }
 if (inTitle && title == null) {
-    System.out.println(new String("TITLE"));
+   // System.out.println(new String("TITLE"));
     title = chars; }
 if (inDescription) { description.append(chars); }
 if (inDate && date == null) { date = chars; }
