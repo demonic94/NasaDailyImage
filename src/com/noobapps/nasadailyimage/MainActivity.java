@@ -153,8 +153,19 @@ public class MainActivity extends Activity {
 	}
 	
 	void storeSD(){
-
-        String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath()+"/NASA Daily Image";
+		
+		String sdcard = null ;
+		Boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
+	    if(isSDPresent)
+	    {
+	    	sdcard = Environment.getExternalStorageDirectory().getAbsolutePath()+"/NASA Daily Image";
+	    }
+	    else
+	    {
+	    	Toast.makeText(MainActivity.this, "@string/errorSD", Toast.LENGTH_LONG).show();
+	    	return;
+	    }
+		
         File dir = new File(sdcard);
 
         if (!dir.exists())

@@ -47,6 +47,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int app_refresh=0x7f050005;
         public static final int description=0x7f050004;
+        public static final int errorSD=0x7f05000a;
         public static final int pdate=0x7f050003;
         public static final int setwall=0x7f050006;
         public static final int store=0x7f050009;

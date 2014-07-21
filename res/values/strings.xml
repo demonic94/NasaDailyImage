@@ -11,5 +11,6 @@
     <string name="Tsuccess">Wallpaper Set</string>
     <string name="Tfail">Error Setting Wallpaper</string>
     <string name="store">Store to SD card</string>
+    <string name="errorSD">Sorry no SD card found</string>
 
 </resources>
